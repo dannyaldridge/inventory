@@ -1,1 +1,7 @@
-index.html.erb
+<h1>Teams</h1>
+
+<ul>
+<% @teams.each do |team| %>
+<li><%= link_to team, team_path(team) %></li>
+<% end %>
+</ul>
