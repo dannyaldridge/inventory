@@ -1,0 +1,19 @@
+<h1>Register</h1>
+
+<%= form_for @user do |user| %>
+	<div>
+		<%= user.label(:name, "Name") %>
+		<%= user.text_field :name %>
+	</div>
+	<div>
+		<%= user.label(:password, "Password") %>
+		<%= user.text_field :password %>
+	</div>
+	<div>
+		<%= user.label(:confirm_password, "Confirm password") %>
+		<%= user.text_field :confirm_password %>
+	</div>
+	<div>
+		<%= submit_tag "Register" %>
+	</div>
+<% end %>
