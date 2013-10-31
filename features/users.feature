@@ -5,9 +5,9 @@ Feature: Users
 
 	Scenario: Sign up
 		Given I go to the sign up page
-		When I fill in "James" for "Login"
+		When I fill in "James" for "Name"
 		And I fill in "123456" for "Password"
-    And I fill in "123456" for "Confirm Password"
+    And I fill in "123456" for "Confirm password"
     And I click "Sign up"
     Then I should see "Thanks for signing up"
     And I should be redirected to the "Teams" page

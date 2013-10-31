@@ -34,10 +34,9 @@ end
 
 group :test, :development do
 	gem 'rspec-rails', '~> 2.0'
-	gem 'cucumber'
 	gem 'capybara'
-	gem 'webrat'
-	gem 'cucumber-rails'
+	gem 'cucumber-rails', require: false
+	gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password
