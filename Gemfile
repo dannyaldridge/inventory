@@ -37,10 +37,11 @@ group :test, :development do
 	gem 'capybara'
 	gem 'cucumber-rails', require: false
 	gem 'database_cleaner'
+  gem 'factory_girl_rails', '~> 4.0' 
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'

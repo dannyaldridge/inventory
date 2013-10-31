@@ -140,11 +140,7 @@ When /^(?:|I )attach the file "([^"]*)" to "([^"]*)"$/ do |path, field|
 end
 
 Then /^(?:|I )should see "([^"]*)"$/ do |text|
-  if response.respond_to? :should
-    response.should contain(text)
-  else
-    assert_contain text
-  end
+  expect(page).to have_content text
 end
 
 Then /^(?:|I )should see "([^"]*)" within "([^"]*)"$/ do |text, selector|
@@ -160,10 +156,10 @@ end
 
 Then /^(?:|I )should see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
-  if response.respond_to? :should
-    response.should contain(regexp)
+  if page.respond_to? :should
+    page.should contain(regexp)
   else
-    assert_match(regexp, response_body)
+    assert_match(regexp, page_body)
   end
 end
 
@@ -179,8 +175,8 @@ Then /^(?:|I )should see \/([^\/]*)\/ within "([^"]*)"$/ do |regexp, selector|
 end
 
 Then /^(?:|I )should not see "([^"]*)"$/ do |text|
-  if response.respond_to? :should_not
-    response.should_not contain(text)
+  if page.respond_to? :should_not
+    page.should_not contain(text)
   else
     assert_not_contain(text)
   end
@@ -199,8 +195,8 @@ end
 
 Then /^(?:|I )should not see \/([^\/]*)\/$/ do |regexp|
   regexp = Regexp.new(regexp)
-  if response.respond_to? :should_not
-    response.should_not contain(regexp)
+  if page.respond_to? :should_not
+    page.should_not contain(regexp)
   else
     assert_not_contain(regexp)
   end
