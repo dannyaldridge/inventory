@@ -14,6 +14,11 @@ class UsersController < ApplicationController
   # POST /users
   def create
   	@user = User.new(user_params)
+    
+    if @user.save!
+      flash[:notice] = "Thanks for signing up"
+      redirect_to root_path
+    end
   end
 
   private 

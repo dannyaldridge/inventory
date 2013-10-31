@@ -7,11 +7,11 @@
 	</div>
 	<div>
 		<%= user.label(:password, "Password") %>
-		<%= user.text_field :password %>
+		<%= user.password_field :password %>
 	</div>
 	<div>
-		<%= user.label(:confirm_password, "Confirm password") %>
-		<%= user.text_field :confirm_password %>
+		<%= user.label(:password_confirmation, "Confirm password") %>
+		<%= user.password_field :password_confirmation %>
 	</div>
 	<div>
 		<%= submit_tag "Sign up" %>
