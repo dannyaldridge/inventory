@@ -24,9 +24,14 @@ describe UsersController do
 
     context "with invalid user attitributes" do
       it "doesnt create a new user in the database" do
+        expect {
+        post 'create', user: FactoryGirl.attributes_for(:invalid_user)
+        }.to_not change(User, :count)
       end
 
       it "redirects to the users new path" do
+       post 'create', user: FactoryGirl.attributes_for(:invalid_user)
+       response.should render_template('users/new')
       end
     end
   end

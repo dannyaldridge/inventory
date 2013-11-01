@@ -18,8 +18,8 @@ Feature: Users
 		And I fill in "12345" for "Password"
     And I fill in "something else" for "Confirm password"
     And I click "Sign up"
-    Then I should be redirected to the new user page
-    And I should see "Passwords did not match"
+    Then I should render the new user page
+    And I should see "Password confirmation doesn't match Password"
 
   # Scenario: Log in 
   # 	Given I go to the log in page
