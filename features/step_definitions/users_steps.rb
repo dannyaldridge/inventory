@@ -12,3 +12,7 @@ Then(/^I should be redirected to the homepage$/) do
   expect(page.current_path).to eq "/"
 end
 
+Then(/^I should render the new user page$/) do
+  expect(page.current_path).to eq "/users"
+end
+
