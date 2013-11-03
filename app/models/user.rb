@@ -9,4 +9,16 @@ class User < ActiveRecord::Base
 		}
 
 
+		def self.validate_login(name, password)
+			user = User.find_by_name(name)
+
+			if user && user.password == user && secure_password
+				user
+			else
+				nil
+			end
+		end
+		
+
+
 end

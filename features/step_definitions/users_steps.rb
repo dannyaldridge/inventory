@@ -16,3 +16,12 @@ Then(/^I should render the new user page$/) do
   expect(page.current_path).to eq "/users"
 end
 
+Given (/^I go to the log in page$/) do
+  visit "/sessions/new"
+end
+
+When (/^I am a user named '(.+) with password '(.)'$/) do |name, password|
+  User.create(name: name, password: password, password_confirmation: password)
+end 
+
+
