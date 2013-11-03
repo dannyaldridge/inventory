@@ -21,14 +21,13 @@ Feature: Users
     Then I should render the new user page
     And I should see "Password confirmation doesn't match Password"
 
-  # Scenario: Log in 
-  # 	Given I go to the log in page
-  # 	When I fill in "James" for "Login"
-	 #  And I fill in "123456" for "Password"
-  #   And I am already a created user
-  #   And I click "Log in"
-  #   Then I should see "You are logged in as James"
-  #   And I should be redirected to the "Teams" page
+  Scenario: Log in 
+  	Given I go to the log in page
+  	When I fill in "James" for "Name"
+	  And I fill in "123456" for "Password"
+    And I click "Log in"
+    Then I should see "You are logged in as James"
+    And I should be redirected to the "Teams" page
 
   # Scenario: Log out 
   # 	Given I am logged in as "James"
