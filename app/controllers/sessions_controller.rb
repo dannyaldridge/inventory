@@ -7,8 +7,19 @@ class SessionsController < ApplicationController
   end
 
   def create
+  	user = User.validate_login(user_params)
+
+  	if User
+  		sessions[:user_id] = user.id
+  		redirect_to login_path
+  	end
   end
 
   def destroy
   end
+
+  def user_params
+    params.require(:user).permit(:name, :password)
+  end
+
 end

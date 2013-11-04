@@ -5,5 +5,3 @@ describe User do
     expect(FactoryGirl.create(:user)).to be_valid
   end
 end
-
-

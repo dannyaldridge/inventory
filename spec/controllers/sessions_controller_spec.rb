@@ -35,4 +35,24 @@ describe SessionsController do
       end
     end
 
+
+    describe "#create" do
+    	context "valid user" do
+    		
+    		before :each do 
+    			@user = FactoryGirl.create :user
+    			post 'create',
+    				name: @user.name,
+    				password: @user.password
+    		end
+
+    		it "creates a user_id session object with the user id" do
+        	expect(session[:user_id]).to eq @user.id
+      	end
+
+    	end
+    end
+
+
+
 end
