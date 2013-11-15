@@ -7,16 +7,29 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	user = User.validate_login(user_params)
-
-  	if User
-  		sessions[:user_id] = user.id
-  		redirect_to login_path
+  	user = User.find_by_name params[:name]
+  	if user && user.authenticate(params[:password])
+  		login user.name
+  		flash[:notice] = "Successful login"
+  		redirect_to root_path
+  	else
+  		render 'new'
+  		flash[:notice] = "That name or password is incorrect"
   	end
   end
 
   def destroy
   end
+
+  def login user_name 
+   if session[:user_name]
+     raise "user already logged in"
+   else
+     session[:user_name] = user_name
+   end
+ end
+
+  private
 
   def user_params
     params.require(:user).permit(:name, :password)
