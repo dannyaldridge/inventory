@@ -10,4 +10,9 @@ FactoryGirl.define do
   	
   	factory :invalid_user, traits: [:password_confirmation_does_not_match]
   end
+
+  factory :non_user do
+    name "George"
+    password "false"
+  end
 end
