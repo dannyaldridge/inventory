@@ -46,8 +46,8 @@ describe SessionsController do
     				password: @user.password
     		end
 
-    		it "creates a user_name session object with the user name" do
-        	expect(session[:user_name]).to eq @user.name
+    		it "creates a user_id session object with the user id" do
+        	expect(session[:user_id]).to eq @user.id
       	end
 
       	it "redirects to the root path" do
@@ -64,12 +64,12 @@ describe SessionsController do
     		
     		before :each do 
     			post 'create',
-    				name: "non existant name",
+    				name: "Danny",
     				password: "non existant password"
     		end
 
-    		it "does not creates a user_name session object with the user name" do
-        	expect(session[:user_name]).to eq nil
+    		it "does not creates a user_id session object with the user id" do
+        	expect(session[:user_id]).to eq nil
       	end
 
       	it "renders the session page" do
@@ -77,7 +77,7 @@ describe SessionsController do
      		end
 
 	      it "sets a flash message"  do
-	        expect(flash[:notice]).to eq "That name or password is incorrect"
+	        expect(flash[:notice]).to eq "Password is incorrect"
       	end
 
     	end
@@ -86,11 +86,11 @@ describe SessionsController do
       before :each do
         post 'create',
           name: 'not_a_real_name',
-          password: 'password'
+          password: 'not_a_real_password'
       end
 
-      it "doesn't create a user_name object in the session" do
-        expect(session[:user_name]).to eq nil
+      it "doesn't create a user_id object in the session" do
+        expect(session[:user_id]).to eq nil
       end
 
       it "re-renders the new page" do
@@ -99,7 +99,7 @@ describe SessionsController do
 
       it "creates an error message in the flash" do
         expect(flash[:error]).to eq(
-          "That name or password is incorrect"
+          "That user does not exist"
         )
       end
     end

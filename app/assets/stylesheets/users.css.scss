@@ -1,3 +1,21 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+input {
+	background: white;
+	border: 1px double #DDD;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #333;
+	color: #666;
+	padding: 5px 10px;
+	width: 165px;
+	outline: none;
+}
+
+h1 {
+	font-size: 40px;
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+label {
+	font-size: 15px;
+}
+
+.button:hover {cursor: hand; cursor: pointer;}
