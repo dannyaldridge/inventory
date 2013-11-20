@@ -1,34 +1,32 @@
 <h1>Register</h1>
 
 
-
-<%= form_for @user do |user| %>
-<% if @user.errors.any? %>
-<div class="errors">
-<ul>
- <% @user.errors.full_messages.each do |error| %>
- <li><%= error %></li>
- <% end %>
-</ul>
+<div class="register">
+	<%= form_for @user do |user| %>
+	<% if @user.errors.any? %>
+	<div class="errors">
+	<ul>
+	 <% @user.errors.full_messages.each do |error| %>
+	 <li><%= error %></li>
+	 <% end %>
+	</ul>
+	</div>
+	<% end %>
+		<div>
+			<%= user.text_field :name, placeholder: "Name"%>
+		</div>
+		<div>
+			<%= user.password_field :password, placeholder: "Password" %>
+		</div>
+		<div>
+			<%= user.password_field :password_confirmation, placeholder: "Confirm password" %>
+		</div>
+		<div>
+			<%= submit_tag "Sign up", class: "button" %>
+		</div>
+		<div>
+			<p>Already have a login? Log in <a href="">here</a></p>
+	<% end %>
 </div>
-<% end %>
-	<div>
-		<%= user.label(:name, "Name") %>
-		<%= user.text_field :name %>
-	</div>
-	<div>
-		<%= user.label(:password, "Password") %>
-		<%= user.password_field :password %>
-	</div>
-	<div>
-		<%= user.label(:password_confirmation, "Confirm password") %>
-		<%= user.password_field :password_confirmation %>
-	</div>
-	<div class="button">
-		<%= submit_tag "Sign up" %>
-	</div>
-	<div>
-		<p>Already have a login? Log in <a href="">here</a></p>
-<% end %>
 
 
