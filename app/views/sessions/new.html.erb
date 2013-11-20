@@ -1,15 +1,15 @@
-<h1>Login</h1>
+<div class="login">
+	<h1>Login</h1>
 
-<%= form_for(:sessions, :url => sessions_path) do |f| %>
-	<div>
-		<%= f.label(:name, "Name") %>
-		<%= f.text_field :name %>
-	</div>
-	<div>
-		<%= f.label(:password, "Password") %>
-		<%= f.password_field :password %>
-	</div>
-	<div>
-		<%= f.submit "Log in" %>
-	</div>
-<% end %>
+	<%= form_for(:sessions, :url => sessions_path) do |f| %>
+		<div>
+			<%= f.text_field :name, placeholder: "Name"%>
+		</div>
+		<div>
+			<%= f.text_field :password, placeholder: "Name"%>
+		</div>
+		<div>
+			<%= f.submit "Log in", class: "button" %>
+		</div>
+	<% end %>
+</div>
