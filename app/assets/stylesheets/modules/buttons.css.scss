@@ -1,0 +1,10 @@
+.button {
+  width: 125px;
+  margin-left: 565px;
+  float: left;
+  margin-right: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
