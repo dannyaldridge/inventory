@@ -60,29 +60,8 @@ describe SessionsController do
 
     	end
 
-    	context "invalid login" do
-    		
-    		before :each do 
-    			post 'create',
-    				name: "Danny",
-    				password: "non existant password"
-    		end
 
-    		it "does not creates a user_id session object with the user id" do
-        	expect(session[:user_id]).to eq nil
-      	end
-
-      	it "renders the session page" do
-        	response.should render_template('sessions/new')
-     		end
-
-	      it "sets a flash message"  do
-	        expect(flash[:notice]).to eq "Password is incorrect"
-      	end
-
-    	end
-
-      context "no user with specified name" do
+      context "invalid login" do
       before :each do
         post 'create',
           name: 'not_a_real_name',
@@ -99,7 +78,7 @@ describe SessionsController do
 
       it "creates an error message in the flash" do
         expect(flash[:error]).to eq(
-          "That user does not exist"
+          "Incorrect user name or password"
         )
       end
     end
