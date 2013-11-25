@@ -33,12 +33,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :test, :development do
+group :test do
 	gem 'rspec-rails', '~> 2.0'
 	gem 'capybara'
 	gem 'cucumber-rails', require: false
 	gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.0' 
+  gem 'spork', '~> 1.0rc' 
 end
 
 # Use ActiveModel has_secure_password
@@ -52,3 +53,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
