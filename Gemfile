@@ -40,6 +40,7 @@ group :test do
 	gem 'database_cleaner'
   gem 'factory_girl_rails', '~> 4.0' 
   gem 'spork', '~> 1.0rc' 
+  gem 'shoulda-matchers'
 end
 
 # Use ActiveModel has_secure_password
