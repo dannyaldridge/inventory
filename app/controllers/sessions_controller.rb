@@ -20,12 +20,15 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
+    flash[:notice] = "You have been logged out"
   end
 
   private
 
   def user_params
     params.require(:user).permit(:name, :password)
+    redirect_to ("sessions/new")
   end
 
 end
