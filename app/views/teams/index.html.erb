@@ -5,3 +5,5 @@
 <li><%= link_to team, team_path(team) %></li>
 <% end %>
 </ul>
+
+<%= link_to "Log out", {:controller=> "user_sessions", :action=> "destroy"}, :method => :delete%>

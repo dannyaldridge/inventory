@@ -34,6 +34,28 @@ describe SessionsController do
     end
   end
 
+  describe "#destroy" do
+    context "user logged in" do
+      before do
+        session[:user_id] = 1
+      end
+
+      it "deletes the user_id in the session" do
+        expect(session[:user_id]).to eq nil
+      end
+
+      it "sets a flash message"  do
+        expect(flash[:notice]).to eq "You have been logged out"
+      end
+
+      it "redirects to the login page" do
+        expect(response).to redirect_to ("sessions/new")
+      end
+
+    end
+
+  end
+
   describe "#create" do
     context "valid user" do
 

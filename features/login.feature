@@ -1,3 +1,8 @@
+Feature: Users
+  In order to keep the inventory secure and up to date
+  people who are able to change the inventory
+  must be a created user 
+
   Scenario: Visit homepage not logged in
     Given I am not logged in
     And I visit the homepage
@@ -22,4 +27,6 @@
   Scenario: Log out 
   	Given I am logged in as "James"
   	And I click "Log out"
-  	Then I should be logged out and redicted to the "Log in" page
+  	Then I should be logged out
+    And I should see "You have been logged out"
+    And I should be redicted to the "Log in" page
