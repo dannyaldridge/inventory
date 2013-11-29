@@ -6,4 +6,4 @@
 <% end %>
 </ul>
 
-<%= link_to "Log out", {:controller=> "user_sessions", :action=> "destroy"}, :method => :delete%>
+<%= link_to "Log out", session_path(session[:user_id]), :method => :delete%>
