@@ -20,21 +20,15 @@ Given (/^I go to the log in page$/) do
   visit "/sessions/new"
 end
 
-# not logged in
-
-Given (/^I am not logged in$/) do
-  Session.find.try(:destroy)
-end
-
 Given (/^I visit the homepage$/) do
-  visit "/teams"
+  visit root_path
 end
 
 Then(/^I should be redirected to the login page$/) do
   expect(page.current_path).to eq "/sessions/new"
 end
 
-When (/^I am a user named '(.+) with password '(.)'$/) do |name, password|
+When(/^I am a user named "(.+)" with password "(.+)"$/) do |name, password|
   User.create(name: name, password: password, password_confirmation: password)
 end 
 

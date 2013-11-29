@@ -4,17 +4,17 @@ Feature: Users
   must be a created user 
 
   Scenario: Visit homepage not logged in
-    Given I am not logged in
-    And I visit the homepage
+    Given I visit the homepage
     Then I should be redirected to the login page
 
   Scenario: Log in with valid credentials
   	Given I go to the log in page
-  	When I fill in "James" for "Name"
+    When I am a user named "James" with password "123456"
+  	And I fill in "James" for "Name"
 	  And I fill in "123456" for "Password"
     And I click "Log in"
     Then I should see "Successful login"
-    And I should be redirected to the "Teams" page
+    And I should be redirected to the homepage
 
   Scenario: Log in with invalid credentials
     Given I go to the log in page
