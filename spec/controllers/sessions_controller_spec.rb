@@ -36,8 +36,9 @@ describe SessionsController do
 
   describe "#destroy" do
     context "user logged in" do
-      before do
+      before :each do
         session[:user_id] = 1
+        delete :destroy, id: 1
       end
 
       it "deletes the user_id in the session" do
@@ -49,7 +50,7 @@ describe SessionsController do
       end
 
       it "redirects to the login page" do
-        expect(response).to redirect_to ("sessions/new")
+        expect(response).to redirect_to new_session_path
       end
 
     end
@@ -77,6 +78,8 @@ describe SessionsController do
       it "sets a flash message"  do
         expect(flash[:notice]).to eq "Successful login"
       end
+
+      it "uses the user_params method to get parameters"
 
     end
 
