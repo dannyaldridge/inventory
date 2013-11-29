@@ -12,7 +12,7 @@ Feature: Users
     When I am a user named "James" with password "123456"
   	And I fill in "James" for "Name"
 	  And I fill in "123456" for "Password"
-    And I click "Log in"
+    And I click the "Log in" button
     Then I should see "Successful login"
     And I should be redirected to the homepage
 
@@ -20,13 +20,14 @@ Feature: Users
     Given I go to the log in page
     When I fill in "non existant name" for "Name"
     And I fill in "non existant password" for "Password"
-    And I click "Log in"
-    Then I should see "Incorrect login"
-    And I should be redirected to the "Teams" page
+    And I click the "Log in" button
+    Then I should see "Incorrect user name or password"
+    And I should see "Login"
 
   Scenario: Log out 
   	Given I am logged in as "James"
-  	And I click "Log out"
-  	Then I should be logged out
+    And I visit the homepage
+  	When I click "Log out"
+  	Then I should see "Log in"
     And I should see "You have been logged out"
-    And I should be redicted to the "Log in" page
+    And I should be redirected to the login page

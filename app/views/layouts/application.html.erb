@@ -12,6 +12,11 @@
     <%= message %>
   </div>
 <% end %>
+  <% if session[:user_id].nil? %>
+    <%= link_to "Log in", new_session_path %>
+  <% else %>
+    <%= link_to "Log out", session_path(1), :method => :delete%>
+  <% end %>
 
 <%= yield %>
 

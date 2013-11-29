@@ -4,8 +4,12 @@ Given (/^I go to the sign up page$/) do
   visit "/users/new"
 end
 
-When (/^I click "(.*?)"$/) do |sign_up|
-  click_button(sign_up)
+When (/^I click "(.*?)"$/) do |item|
+  click_on(item)
+end
+
+When (/^I click the "(.*?)" button$/) do |item|
+  click_button(item)
 end
 
 Then(/^I should be redirected to the homepage$/) do
