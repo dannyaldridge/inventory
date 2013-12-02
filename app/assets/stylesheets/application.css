@@ -11,6 +11,8 @@
  *= require_self
  *= require foundation_and_overrides
 
+ *= require foundation_and_overrides
+
  *= require base/normalize
  *= require base/defaults
  *= require_tree .
