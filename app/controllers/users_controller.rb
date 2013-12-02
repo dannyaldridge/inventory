@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+
   # GET /users
   def index
   end
+
   # GET /users/:id
   def show
   end
@@ -28,6 +30,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)
   end
-
 
 end
