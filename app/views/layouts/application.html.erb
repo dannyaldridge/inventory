@@ -13,16 +13,16 @@
 
   <body>
 
-      <% flash.each do |name, message| %>
+    <% flash.each do |name, message| %>
       <div class="flash #{name}">
         <%= message %>
       </div>
     <% end %>
-      <% if session[:user_id].nil? %>
-        <%= link_to "Log in", new_session_path %>
-      <% else %>
-        <%= link_to "Log out", session_path(1), :method => :delete%>
-      <% end %>
+    <% if session[:user_id].nil? %>
+      <%= link_to "Log in", new_session_path %>
+    <% else %>
+      <%= link_to "Log out", session_path(1), :method => :delete%>
+    <% end %>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
