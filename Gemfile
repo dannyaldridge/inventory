@@ -36,7 +36,7 @@ group :doc do
 end
 
 group :test do
-  gem 'rspec-rails', '2.13.1'
+  gem 'rspec-rails', '~> 3.0.0.beta'
 	gem 'capybara'
 	gem 'cucumber-rails', require: false
 	gem 'database_cleaner'
