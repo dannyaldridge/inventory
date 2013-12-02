@@ -18,7 +18,7 @@ describe ApplicationController do
       end
 
       it "redirects to the login page" do
-        expect(response).to redirect_to new_session_path 
+        expect(response).to redirect_to ('/sessions/new')
       end
 
       it "sets flash notice to 'you must be logged in to view that page'" do
