@@ -1,4 +1,4 @@
-Feature: Add inventory items to system
+Feature: Add Teams to system
   As the inventory manager
   I want to add an inventory item to a the system,
   so that I can track the team inventory.
