@@ -4,9 +4,11 @@ describe SessionsController do
 
   describe "#new" do
     context "user not logged in" do
+
       before(:each) do
         get 'new'
       end
+
       it "returns http success" do
         response.should be_success
       end
@@ -14,10 +16,10 @@ describe SessionsController do
       it "renders the new template" do
         expect(response).to render_template "new"
       end
-
     end
 
     context "user already logged in" do
+
       before :each do
         session[:user_id] = 1
         get 'new'
@@ -36,6 +38,7 @@ describe SessionsController do
 
   describe "#destroy" do
     context "user logged in" do
+
       before :each do
         session[:user_id] = 1
         delete :destroy, id: 1
@@ -63,8 +66,10 @@ describe SessionsController do
       before :each do 
         @user = FactoryGirl.create :user
         post 'create',
-          name: @user.name,
-          password: @user.password
+          sessions: {
+            name: @user.name,
+            password: @user.password
+          }
       end
 
       it "creates a user_id session object with the user id" do
@@ -79,16 +84,15 @@ describe SessionsController do
         expect(flash[:notice]).to eq "Successful login"
       end
 
-      it "uses the user_params method to get parameters"
-
     end
-
 
     context "invalid login" do
       before :each do
         post 'create',
-          name: 'not_a_real_name',
-          password: 'not_a_real_password'
+          sessions: {
+            name: 'not_a_real_name',
+            password: 'not_a_real_password'
+          }
       end
 
       it "doesn't create a user_id object in the session" do
