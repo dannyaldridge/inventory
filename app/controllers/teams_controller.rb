@@ -15,9 +15,9 @@ class TeamsController < ApplicationController
   	end
   end
 
-  # def index
-  #   @team = Team.all
-  # end
+  def index
+    @team = Team.all
+  end
 
   def show
     @team = Team.find params[:id]
