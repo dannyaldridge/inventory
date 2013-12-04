@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Team Name</th>
+    </tr>
+    <tbody>
+      <% @teams.each do |team| %>
+        <tr>
+          <td>
+            <%= link_to team.name, team %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </thead>
+</table>
+
+<%= link_to "Add a new team", :method => :create%>
