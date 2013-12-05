@@ -1,6 +1,13 @@
 require_relative '../support/env'
 
-Given (/^I go to the sign up page$/) do
+Given (/^I am logged in$/) do
+  visit "/sessions/new"
+  fill_in "Name", with: "James" 
+  fill_in "Password", with: "123456" 
+  click_button "Log in"
+end
+
+Given (/^I go to the new user page$/) do
   visit "/users/new"
 end
 
