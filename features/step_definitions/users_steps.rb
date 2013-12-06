@@ -1,9 +1,10 @@
 require_relative '../support/env'
 
 Given (/^I am logged in$/) do
+  @user = User.create(name: "James", password: "123456", password_confirmation: "123456")
   visit "/sessions/new"
-  fill_in "Name", with: "James" 
-  fill_in "Password", with: "123456" 
+  fill_in "Name", with: @user.name
+  fill_in "Password", with: "123456"
   click_button "Log in"
 end
 
@@ -23,8 +24,8 @@ Then(/^I should be redirected to the homepage$/) do
   expect(page.current_path).to eq "/"
 end
 
-Then(/^I should render the new user page$/) do
-  expect(page.current_path).to eq "/users"
+Then(/^I should be at the new user page$/) do
+  expect(page.current_path).to eq "/users/new"
 end
 
 Given (/^I go to the log in page$/) do
