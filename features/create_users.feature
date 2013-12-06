@@ -5,11 +5,11 @@ Feature: Create new users
 
 	Scenario:  Create user with valid credentials
 	Given I am logged in
-	Given I go to the new user page
+	And I go to the new user page
 	When I fill in "Jamesoenuth" for "Name"
 	And I fill in "123456" for "Password"
   And I fill in "123456" for "Confirm password"
-  And I click "Sign up"
+  And I click "Create User"
   Then I should see "User created successfully"
 
 	Scenario: Create user with invalid credentials
@@ -18,6 +18,5 @@ Feature: Create new users
 	When I fill in "Danny" for "Name"
 	And I fill in "12345" for "Password"
   And I fill in "something else" for "Confirm password"
-  And I click "Sign up"
-  Then I should render the new user page
-  And I should see "Password confirmation doesn't match Password"
+  And I click "Create User"
+  Then I should see "Password confirmation doesn't match Password"
