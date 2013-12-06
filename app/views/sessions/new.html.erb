@@ -1,16 +1,15 @@
 <div class="login">
 	<h1>Login</h1>
 
-	<%= form_tag sessions_path do %>
+	<%= form_for :sessions, url: sessions_path do |f| %>
 		<div>
-			<%= text_field_tag :name, nil, placeholder: "Name"%>
+			<%= f.text_field :name, placeholder: "Name"%>
 		</div>
 		<div>
-			<%= password_field_tag :password, nil, placeholder: "Password"%>
+			<%= f.password_field :password, placeholder: "Password"%>
 		</div>
 		<div>
 			<%= submit_tag "Log in", class: "button" %>
 		</div>
-		<p>Don't have a login? Register <a href="">here</a></p>
 	<% end %>
 </div>
