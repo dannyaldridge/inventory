@@ -16,7 +16,7 @@ describe TeamsController do
     end
   end
 
-  describe "create" do
+  describe "#create" do
     before(:each) do
       stub_login
     end
@@ -49,6 +49,19 @@ describe TeamsController do
       end
 
     end
+  end
+
+  describe "#new" do
+  end
+
+  describe "#index" do
+  end
+
+  describe "#show" do
+
+  end
+
+  describe "#team_params" do
   end
 
 end
