@@ -7,7 +7,8 @@ Feature: Add Teams to system
   * Team names must be unique 
 
 Scenario: Add Teams
-    Given I go to the new teams page
+    Given I am logged in
+    When I go to the new teams page
     And I fill in "Junior Kitted" for "Team Name" 
     And I click "Add team"
     Then I should be redirected to the teams page
