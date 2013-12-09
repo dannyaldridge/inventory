@@ -7,6 +7,6 @@ Scenario:  Delete teams
 	And I go to a team page
 	When I click "Delete Team"
 	Then I should see the teams page
-	And I should not see the team
+	And I should not be able to see "Test"
 
 
