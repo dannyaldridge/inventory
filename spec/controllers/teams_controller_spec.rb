@@ -80,13 +80,31 @@ describe TeamsController do
   describe "#show" do
     before :each do
       stub_login
-      get 'new'
+      @team = FactoryGirl.create(:team)
+      get 'show', id: @team.id
     end
 
-  it "Assigns all the information to the team" do
-    expect(assigns current_team.(:id)).to be_instance_of current_team
+    it "Assigns @team to the Team with id, params[:id]" do
+      expect(assigns(:team).id).to eq @team.id
+    end
   end
-  
+
+  describe "#destroy" do
+    before(:each) do 
+      stub_login
+      @team = FactoryGirl.create(:team)
+
+      delete "destroy", id: @team.id
+    end
+    
+    it "removes the team from the database" do
+      expect(Team.exists?(@team.id)).to be_nil
+    end
+
+    it "redirects to the index action" do
+        expect(response).to redirect_to teams_path
+    end
+
   end
 
 end
