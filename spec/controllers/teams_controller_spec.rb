@@ -44,24 +44,49 @@ describe TeamsController do
           team: {name: @team.name}
       end
 
-      it "redrects to the new team page" do
+      it "renders to the new team page" do
         response.should render_template('teams/new')
       end
 
     end
   end
 
-  describe "#new" do
+    describe "#new" do
+      before :each do
+        stub_login
+        get 'new'
+      end
+
+    it "Creates a new team object" do
+      expect(assigns[:team]).to be_instance_of Team
+    end
+
+    it "Creates the new team page" do
+      response.should render_template('teams/new')
+    end
   end
 
   describe "#index" do
+    before :each do
+      stub_login
+      get 'index'
+    end
+
+    it "Gets all the objects for @teams" do
+      expect(assigns([:team].count)).to eq ((Team.all).count)
+    end
   end
 
   describe "#show" do
+    before :each do
+      stub_login
+      get 'new'
+    end
 
+  it "Assigns all the information to the team" do
+    expect(assigns current_team.(:id)).to be_instance_of current_team
   end
-
-  describe "#team_params" do
+  
   end
 
 end
