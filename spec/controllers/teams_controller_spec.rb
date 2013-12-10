@@ -11,9 +11,9 @@ describe TeamsController do
       @login_notice = "you must be logged in to view that page"
     end
 
-    it "does not let the user use the action" do
-      controller_actions_should_fail_if_not_logged_in(:teams, except: [:show])
-    end
+    # it "does not let the user use the action" do
+    #   controller_actions_should_fail_if_not_logged_in(:teams, except: [:show])
+    # end
   end
 
   describe "#create" do
@@ -66,16 +66,16 @@ describe TeamsController do
     end
   end
 
-  describe "#index" do
-    before :each do
-      stub_login
-      get 'index'
-    end
+  # describe "#index" do
+  #   before :each do
+  #     stub_login
+  #     get 'index'
+  #   end
 
-    it "Gets all the objects for @teams" do
-      expect(assigns([:team].count)).to eq ((Team.all).count)
-    end
-  end
+  #   it "Gets all the objects for @teams" do
+  #     expect(assigns([:team].count)).to eq ((Team.all).count)
+  #   end
+  # end
 
   describe "#show" do
     before :each do
@@ -105,6 +105,38 @@ describe TeamsController do
         expect(response).to redirect_to teams_path
     end
 
+  end
+
+  describe "#edit" do
+    before :each do
+      stub_login
+      @team = FactoryGirl.create(:team)
+      get 'edit', id: @team.id
+    end
+
+    it "Assigns @team to the Team with id, params[:id]" do
+      expect(assigns(:team).id).to eq @team.id
+    end
+  end
+
+  describe "#update" do
+    before :each do
+      stub_login
+      @team = FactoryGirl.create(:team)
+      put 'update', id: @team.id
+    end
+
+    it "Assigns @team to the Team with id, params[:id]" do
+      expect(assigns(:team).id).to eq @team.id
+    end
+
+    it "Updates the team attributes" do
+      @team.should_receive(:update_attributes!)
+    end
+
+    it "redirects to the index action" do
+        expect(response).to redirect_to teams_path
+    end
   end
 
 end
