@@ -28,6 +28,20 @@ class TeamsController < ApplicationController
     redirect_to teams_path
   end
 
+  def edit
+    @team = Team.find params[:id]
+  end
+
+  def update
+    @team = Team.find params[:id]
+    @team.update_attributes(team_params)
+    if @team.save
+      redirect_to teams_path
+    else
+      render 'edit' 
+    end 
+  end
+
   private 
 
   def team_params
