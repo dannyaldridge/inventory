@@ -1,4 +1,6 @@
 <h1><%= @team.name %></h1>
 
+<%= link_to "Edit Team", edit_team_path%>
+
 <%= button_to "Delete Team", {:controller => :teams,
       :action => 'destroy', :id => @team.id }, :method => :delete %>
