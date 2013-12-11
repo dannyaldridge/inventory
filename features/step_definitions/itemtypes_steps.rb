@@ -1,5 +1,5 @@
 Given(/^I go to the add item type page$/) do
-	visit "/item_types/new"
+	visit "/itemtypes/new"
 end
 
 Then(/^I should be redirected to that teams page$/) do
