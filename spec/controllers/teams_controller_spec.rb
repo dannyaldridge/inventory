@@ -23,12 +23,12 @@ describe TeamsController do
 
     context "with a unique name" do
       it "creates a new team in the database" do
-        expect {post 'create', team: FactoryGirl.attributes_for(:team)}.to change(Team, :count).by 1
+        expect {post 'create', team: FactoryGirl.attributes_for(:team)}.to change(Team, :count).by(1)
       end
 
       it "sets the flash message to 'Team added'" do
         post 'create', team: FactoryGirl.attributes_for(:team)
-        expect(flash[:notice]).to eq "Team added"
+        expect(flash[:notice]).to eq("Team added")
       end
 
       it "redirects to the show team page" do
@@ -37,14 +37,14 @@ describe TeamsController do
       end
     end
 
-    context "With a non unique name" do
-      before :each do
+    context "With a non-unique name" do
+      before(:each) do
         @team = FactoryGirl.create(:team)
         post 'create',
           team: {name: @team.name}
       end
 
-      it "redrects to the new team page" do
+      it "redirects to the new team page" do
         response.should render_template('teams/new')
       end
 
@@ -58,10 +58,8 @@ describe TeamsController do
   end
 
   describe "#show" do
-
   end
 
   describe "#team_params" do
   end
-
 end

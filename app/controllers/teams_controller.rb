@@ -5,13 +5,13 @@ class TeamsController < ApplicationController
   end
 
   def create
-  	@team = Team.new team_params
+  	@team = Team.new(team_params)
 
   	if @team.save
   		flash[:notice] = "Team added"
-  		redirect_to @team
+  		redirect_to(@team)
   	else
-  		render 'new'
+  		render('new')
   	end
   end
 
@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find params[:id]
+    @team = Team.find(params[:id])
   end
 
   private 
@@ -28,6 +28,5 @@ class TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:name)
   end
-
 
 end
