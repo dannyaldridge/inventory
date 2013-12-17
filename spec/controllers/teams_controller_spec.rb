@@ -31,9 +31,9 @@ describe TeamsController do
         expect(flash[:notice]).to eq "Team added"
       end
 
-      it "redrects to the show teams page" do
+      it "redirects to the show team page" do
         post 'create', team: FactoryGirl.attributes_for(:team)
-        expect(response).to redirect_to ('/teams/1')
+        expect(response).to redirect_to team_path(assigns(:team))
       end
     end
 

@@ -11,7 +11,7 @@ Scenario: Add Teams
     When I go to the new teams page
     And I fill in "Junior Kitted" for "Team Name" 
     And I click "Add team"
-    Then I should be redirected to the teams page
+    Then I should be redirected to the team page
     And I should see "Team added"
     And I should see "Junior Kitted"
  
