@@ -41,6 +41,10 @@ end
 Spork.each_run do
   # Checks for pending migrations before tests are run.
   ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
+
+  def stub_login
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(User.first.present? ? User.first : FactoryGirl.create(:user))
+  end
 end
 
 
