@@ -15,6 +15,7 @@ Scenario: Add Item Types
     And I should see "Helmets"
 
 Scenario: Delete Item Types
-    Given I go to the item type page
-    And I click "Delete Item type"
-    Then I should be redirected to the teams page
+  Given I go to a item type page
+  When I click "Delete Item Type"
+  Then I should see the teams page
+  And I should not be able to see "Test"
