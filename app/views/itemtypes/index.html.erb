@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th>Item Type Name</th>
+    </tr>
+    <tbody>
+      <% @itemtypes.each do |itemtype| %>
+        <tr>
+          <td>
+            <%= link_to itemtype.name, itemtype %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </thead>
+</table>
+
+<%= link_to "Add a new item type", new_itemtype_path%>
