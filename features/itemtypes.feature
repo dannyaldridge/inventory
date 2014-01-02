@@ -13,3 +13,8 @@ Scenario: Add Item Types
     Then I should be redirected to that item type
     And I should see "Item Type added"
     And I should see "Helmets"
+
+Scenario: Delete Item Types
+    Given I go to the item type page
+    And I click "Delete Item type"
+    Then I should be redirected to the teams page
