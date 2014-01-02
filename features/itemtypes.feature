@@ -19,3 +19,10 @@ Scenario: Delete Item Types
   When I click "Delete Item Type"
   Then I should see the teams page
   And I should not be able to see "Test"
+
+Scenario:  Edit Item Types
+  Given I go to a item types page
+  And I click "Edit Item Type"
+  And I fill in "rename" for "Item Type Name"
+  And I click "Update"
+  Then I should see the team page
