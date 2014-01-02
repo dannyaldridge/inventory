@@ -10,6 +10,6 @@ Scenario: Add Item Types
     Given I go to the add item type page
     And I fill in "Helmets" for "Item Type" 
     When I click "Add Item Type"
-    Then I should be redirected to that teams page
+    Then I should be redirected to that item type
     And I should see "Item Type added"
     And I should see "Helmets"
