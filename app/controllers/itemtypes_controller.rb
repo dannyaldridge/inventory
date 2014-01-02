@@ -15,10 +15,14 @@ def create
   end 
 end
 
+def show
+  @itemtype = Itemtype.find params[:id]
+end
+
 private 
 
   def itemtype_params
-    params.require(:itemtype).permit(:name)
+    params.require(:itemtype).permit(:name, :id)
   end
 
 end
