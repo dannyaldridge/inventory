@@ -18,4 +18,7 @@ describe TeamsController do
     	end
   	end
 
+  descibe "#create" do
+  end
+
 end
