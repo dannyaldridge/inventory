@@ -19,6 +19,11 @@ def show
   @itemtype = Itemtype.find params[:id]
 end
 
+def destroy
+	Itemtype.destroy params[:id]
+  redirect_to itemtypes_path
+end
+
 private 
 
   def itemtype_params
