@@ -24,6 +24,10 @@ def destroy
   redirect_to itemtypes_path
 end
 
+def index
+  @itemtypes = Itemtype.all
+end
+
 private 
 
   def itemtype_params
