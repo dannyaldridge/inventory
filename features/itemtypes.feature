@@ -21,7 +21,7 @@ Scenario: Delete Item Types
   And I should not be able to see "Test"
 
 Scenario:  Edit Item Types
-  Given I go to a item types page
+  Given I go to a item type page
   And I click "Edit Item Type"
   And I fill in "rename" for "Item Type Name"
   And I click "Update"
