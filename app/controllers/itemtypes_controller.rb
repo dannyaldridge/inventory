@@ -33,7 +33,13 @@ def edit
 end
 
 def update
-
+	@itemtype = Itemtype.find params[:id]
+  @itemtype.update_attributes(itemtype_params)
+  if @itemtype.save
+    redirect_to itemtypes_path
+  else
+    render 'edit' 
+  end
 end
 
 private 
