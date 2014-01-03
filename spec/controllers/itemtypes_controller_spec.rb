@@ -36,6 +36,18 @@ describe ItemtypesController do
 
   end
 
+  describe "#edit" do
+    before :each do
+      stub_login
+      @itemtype = FactoryGirl.create(:itemtype)
+      get 'edit', id: @itemtype.id
+    end
+
+    it "Assigns @itemtype to the Itemtype with id, params[:id]" do
+      expect(assigns(:itemtype).id).to eq @itemtype.id
+    end
+  end
+
   describe "#create" do
       before :each do
         stub_login
