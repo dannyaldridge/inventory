@@ -32,6 +32,10 @@ def edit
 	@itemtype = Itemtype.find params[:id]
 end
 
+def update
+
+end
+
 private 
 
   def itemtype_params
