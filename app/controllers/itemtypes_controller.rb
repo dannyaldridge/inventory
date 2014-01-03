@@ -28,6 +28,10 @@ def index
   @itemtypes = Itemtype.all
 end
 
+def edit
+
+end
+
 private 
 
   def itemtype_params
