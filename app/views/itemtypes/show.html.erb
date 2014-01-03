@@ -2,3 +2,6 @@
 
 <%= button_to "Delete Item Type", {:controller => :itemtypes,
       :action => 'destroy', :id => @itemtype.id }, :method => :delete %>
+
+<%= button_to "Edit Item Type", {:controller => :itemtypes,
+      :action => 'edit', :id => @itemtype.id }, :method => :get %>
