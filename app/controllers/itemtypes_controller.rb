@@ -29,7 +29,7 @@ def index
 end
 
 def edit
-
+	@itemtype = Itemtype.find params[:id]
 end
 
 private 
