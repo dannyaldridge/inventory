@@ -48,6 +48,26 @@ describe ItemtypesController do
     end
   end
 
+  describe "#update" do
+    before :each do
+      stub_login
+      @itemtype = FactoryGirl.create(:itemtype)
+      put 'update', id: @itemtype.id
+    end
+
+    it "Assigns @itemtype to the Item Type with id, params[:id]" do
+      expect(assigns(:itemtype).id).to eq @itemtype.id
+    end
+
+    it "Updates the Item Type attributes" do
+      @itemtype.should_receive(:update_attributes!)
+    end
+
+    it "redirects to the index action" do
+        expect(response).to redirect_to itemtypes_path
+    end
+  end
+
   describe "#create" do
       before :each do
         stub_login
