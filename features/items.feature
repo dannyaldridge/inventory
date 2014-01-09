@@ -13,9 +13,9 @@ Scenario: Add Items
     And I fill in "RM1" for "Label"
     And I fill in "Gold helmet" for "Description"
     And I fill in "1" for "Quantity"
-    And I select "3/1/14" for "purchase date"
-    And I select "Helmet" for "Item Type"
-    And I select "Kitted" for "Team"
+    And I fill in "09/01/14" for "purchase date"
+    And I fill in "Helmet" for "Item Type"
+    And I fill in "Kitted" for "Team"
     When I click "Add Item"
     Then I should be taken to that item types page
     And I should see "Item added"
