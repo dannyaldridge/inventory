@@ -44,7 +44,7 @@ describe ItemsController do
       before :each do
         @item = FactoryGirl.create(:item)
         post 'create',
-          itemtype: {name: @item.name}
+          item: {name: @item.name}
         end
 
       it "redrects to the new item page" do
