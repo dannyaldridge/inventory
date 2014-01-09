@@ -2,9 +2,30 @@
 
 <%= form_for @item do |item| %>
 	<div>
-		<%= item.text_field :name, placeholder: "Item Name", label: "Item Name" %>
+		<%= item.text_field :name, placeholder: "Name", label: "Name" %>
 	</div>
 	<div>
-		<%= submit_tag "Add Item Type", class: "button" %>
+		<%= item.text_field :size, placeholder: "Size", label: "Size" %>
+	</div>
+	<div>
+		<%= item.text_field :label, placeholder: "Label", label: "Label" %>
+	</div>
+	<div>
+		<%= item.text_field :description, placeholder: "Description", label: "Decription" %>
+	</div>
+	<div>
+		<%= item.text_field :quantity, placeholder: "Quantity", label: "Quantity" %>
+	</div>
+	<div>
+		<%= item.text_field :date, placeholder: "Purchase Date", label: "Purchase Date" %>
+	</div>
+	<div>
+		<%= item.text_field :type, placeholder: "Item Type", label: "Item Type" %>
+	</div>
+	<div>
+		<%= item.text_field :team, placeholder: "Team", label: "Team" %>
+	</div>
+	<div>
+		<%= submit_tag "Add Item", class: "button" %>
 	</div>
 <% end %>
