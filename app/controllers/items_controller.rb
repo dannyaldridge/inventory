@@ -5,7 +5,14 @@ class ItemsController < ApplicationController
 	end
 
 	def create
-		
+		@item = Item.new item_params
+	
+		if @item.save
+  		flash[:notice] = "Item added"
+  		redirect_to @item
+  	else
+  		render 'new'
+  	end 	
 	end
 
 private 
