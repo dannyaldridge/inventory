@@ -1,29 +1,35 @@
 <h1>Add a new item </h1>
 
 <%= form_for @item do |item| %>
-	<div>
-		<%= item.text_field :name, placeholder: "Name", label: "Name" %>
+	<div class="row">
+		<div class="large-4 columns">
+			<%= item.text_field :name, placeholder: "Name", label: "Name" %>
+		</div>
+		<div class="large-4 columns">
+			<%= item.text_field :size, placeholder: "Size", label: "Size" %>
+		</div>
+		<div class="large-4 columns">
+			<%= item.text_field :label, placeholder: "Label", label: "Label" %>
+		</div>
 	</div>
-	<div>
-		<%= item.text_field :size, placeholder: "Size", label: "Size" %>
+	<div class="row">
+		<div class="large-12 columns">
+			<%= item.text_field :description, placeholder: "Description", label: "Decription" %>
+		</div>
 	</div>
-	<div>
-		<%= item.text_field :label, placeholder: "Label", label: "Label" %>
-	</div>
-	<div>
-		<%= item.text_field :description, placeholder: "Description", label: "Decription" %>
-	</div>
-	<div>
-		<%= item.text_field :quantity, placeholder: "Quantity", label: "Quantity" %>
-	</div>
-	<div>
-		<%= item.text_field :date, placeholder: "Purchase Date", label: "Purchase Date" %>
-	</div>
-	<div>
-		<%= item.text_field :type, placeholder: "Item Type", label: "Item Type" %>
-	</div>
-	<div>
-		<%= item.text_field :team, placeholder: "Team", label: "Team" %>
+	<div class="row">
+		<div class="large-3 columns">
+			<%= item.text_field :quantity, placeholder: "Quantity", label: "Quantity" %>
+		</div>
+		<div class="large-3 columns">
+			<%= item.text_field :date, placeholder: "Purchase Date", label: "Purchase Date" %>
+		</div>
+		<div class="large-3 columns">
+			<%= item.text_field :type, placeholder: "Item Type", label: "Item Type" %>
+		</div>
+		<div class="large-3 columns">
+			<%= item.text_field :team, placeholder: "Team", label: "Team" %>
+		</div>
 	</div>
 	<div>
 		<%= submit_tag "Add Item", class: "button" %>
