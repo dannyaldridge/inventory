@@ -1,18 +1,21 @@
-<table>
-  <thead>
-    <tr>
-      <th>Item Name</th>
-    </tr>
-    <tbody>
-      <% @items.each do |item| %>
-        <tr>
-          <td>
-            <%= link_to item.name, item %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </thead>
-</table>
-
-<%= link_to "Add a new item", new_item_path%>
+<div class="row">
+  <table class="large-3 columns">
+    <thead>
+      <tr>
+        <th>Item Name</th>
+      </tr>
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td class="row large-6 columns">
+              <%= link_to item.name, item %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </thead>
+  </table>
+</div>
+<div class="row">
+  <%= link_to "Add a new item", new_item_path%>
+</div>
