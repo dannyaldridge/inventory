@@ -2,13 +2,13 @@
   <table class="large-3 columns">
     <thead>
       <tr>
-        <th>Team Name</th>
+        <th>Item Type Name</th>
       </tr>
       <tbody>
-        <% @teams.each do |team| %>
+        <% @itemtypes.each do |itemtype| %>
           <tr>
             <td class="row large-6 columns">
-              <%= link_to team.name, team %>
+              <%= link_to itemtype.name, itemtype %>
             </td>
           </tr>
         <% end %>
@@ -17,5 +17,5 @@
   </table>
 </div>
 <div class="row">
-  <%= link_to "Add a new team", new_team_path%>
-</div>
+  <%= link_to "Add a new item type", new_itemtype_path%>
+</div>  

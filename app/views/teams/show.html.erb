@@ -4,3 +4,4 @@
 
 <%= button_to "Delete Team", {:controller => :teams,
       :action => 'destroy', :id => @team.id }, :method => :delete %>
+<%= link_to "Add a new item type", new_itemtype_path%>

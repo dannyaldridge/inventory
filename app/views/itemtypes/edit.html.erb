@@ -1,0 +1,10 @@
+<h1>Edit Item Type</h1>
+
+<%= form_for @itemtype do |itemtype| %>
+	<div>
+		<%= itemtype.text_field :name, placeholder: "Item Type Name", label: "Item Type Name" %>
+	</div>
+	<div>
+		<%= submit_tag "Update", class: "button" %>
+	</div>
+<% end %>

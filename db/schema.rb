@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131203115416) do
+ActiveRecord::Schema.define(version: 20140114204641) do
 
-  create_table "teams", force: true do |t|
+  create_table "items", force: true do |t|
     t.string   "name"
+    t.string   "size"
+    t.string   "label"
+    t.string   "description"
+    t.integer  "quantity"
+    t.string   "date"
+    t.string   "type"
+    t.string   "team"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "itemtypes", force: true do |t|
+  end
+
+  create_table "kits", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.integer  "quantity"
+    t.string   "description"
+    t.integer  "squad"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
