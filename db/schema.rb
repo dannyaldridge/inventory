@@ -11,13 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140106144236) do
-
-  create_table "item_types", force: true do |t|
-    t.string   "type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140114204641) do
 
   create_table "items", force: true do |t|
     t.string   "name"
@@ -33,13 +27,14 @@ ActiveRecord::Schema.define(version: 20140106144236) do
   end
 
   create_table "itemtypes", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
-  create_table "teams", force: true do |t|
+  create_table "kits", force: true do |t|
     t.string   "name"
+    t.string   "type"
+    t.integer  "quantity"
+    t.string   "description"
+    t.integer  "squad"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
