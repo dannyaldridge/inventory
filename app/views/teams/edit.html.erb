@@ -1,0 +1,10 @@
+<h1>Edit Team</h1>
+
+<%= form_for @team do |team| %>
+	<div>
+		<%= team.text_field :name, placeholder: "Team Name", label: "Team Name" %>
+	</div>
+	<div>
+		<%= submit_tag "Update", class: "button" %>
+	</div>
+<% end %>

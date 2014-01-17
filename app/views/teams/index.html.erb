@@ -1,8 +1,21 @@
-<h1>Teams</h1>
-
-<ul>
-<% @teams.each do |team| %>
-<li><%= link_to team, team_path(team) %></li>
-<% end %>
-</ul>
-
+<div class="row">
+  <table class="large-3 columns">
+    <thead>
+      <tr>
+        <th>Team Name</th>
+      </tr>
+      <tbody>
+        <% @teams.each do |team| %>
+          <tr>
+            <td class="row large-6 columns">
+              <%= link_to team.name, team %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </thead>
+  </table>
+</div>
+<div class="row">
+  <%= link_to "Add a new team", new_team_path%>
+</div>
