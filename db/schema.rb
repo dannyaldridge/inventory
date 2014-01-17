@@ -13,21 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140116192002) do
 
-  create_table "items", force: true do |t|
-    t.string   "name"
-    t.string   "size"
-    t.string   "label"
-    t.string   "description"
-    t.integer  "quantity"
-    t.string   "date"
-    t.string   "type"
-    t.string   "team"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "itemtypes", force: true do |t|
-  end
 
   create_table "teams", force: true do |t|
     t.string   "name"
