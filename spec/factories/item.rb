@@ -8,6 +8,5 @@ FactoryGirl.define do
     description "Gold Helmet"
     quantity "1"
     date "09/01/14"
-    team "Kitted"
   end
 end
