@@ -1,3 +1,3 @@
 class Item < ActiveRecord::Base
-  validates :name, presence: true, uniquness: true
+  validates :name, presence: true, uniqueness: true
 end
