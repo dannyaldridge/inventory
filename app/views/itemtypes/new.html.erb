@@ -1,0 +1,12 @@
+<h1>Add a new item type</h1>
+
+<%= form_for @itemtype do |itemtype| %>
+	<div class="row">
+		<div class="large-6 column">
+			<%= itemtype.text_field :name, placeholder: "Item Type", label: "Item Type" %>
+		</div>
+		<div>
+			<%= submit_tag "Add Item Type", class: "button" %>
+		</div>
+	</div>
+<% end %>

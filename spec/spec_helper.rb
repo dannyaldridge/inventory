@@ -35,19 +35,6 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
-
-    config.before(:suite) do
-      DatabaseCleaner.strategy = :transaction
-      DatabaseCleaner.clean_with(:truncation)
-    end
-
-    config.before(:each) do
-      DatabaseCleaner.start
-    end
-
-    config.after(:each) do
-      DatabaseCleaner.clean
-    end
   end
 end
 
@@ -59,3 +46,7 @@ Spork.each_run do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(User.first.present? ? User.first : FactoryGirl.create(:user))
   end
 end
+
+
+
+

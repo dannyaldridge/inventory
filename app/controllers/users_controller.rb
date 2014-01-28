@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
-
   # GET /users
   def index
   end
-
   # GET /users/:id
   def show
   end
@@ -18,7 +16,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
     
     if @user.save
-      flash[:notice] = "User created successfully"
+      flash[:notice] = "Thanks for signing up"
       redirect_to root_path
     else
       render 'new'
@@ -30,5 +28,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)
   end
+
 
 end

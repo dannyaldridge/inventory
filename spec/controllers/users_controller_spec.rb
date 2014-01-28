@@ -16,9 +16,9 @@ describe UsersController do
         expect(response).to redirect_to root_path
       end
 
-      it "sets the flash message to 'User created successfully'" do
+      it "sets the flash message to 'Thanks for signing up'" do
         post 'create', user: FactoryGirl.attributes_for(:user)
-        expect(flash[:notice]).to eq "User created successfully"        
+        expect(flash[:notice]).to eq "Thanks for signing up"        
       end
     end
 
