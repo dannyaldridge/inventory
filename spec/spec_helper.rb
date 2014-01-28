@@ -46,7 +46,3 @@ Spork.each_run do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(User.first.present? ? User.first : FactoryGirl.create(:user))
   end
 end
-
-
-
-
