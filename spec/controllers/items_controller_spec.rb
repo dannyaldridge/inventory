@@ -13,8 +13,8 @@ describe ItemsController do
       	expect(assigns[:item]).to be_instance_of Item
     	end
 
-    	it "Creates the new item page" do
-      	response.should render_template('item/new')
+    	it "Renders the new item page" do
+      	response.should render_template('items/new')
     	end
   	end
 
@@ -40,7 +40,7 @@ describe ItemsController do
       end
     end
 
-    context "With a non unique name" do
+    context "With a non-unique name" do
       before :each do
         @item = FactoryGirl.create(:item)
         post 'create',
