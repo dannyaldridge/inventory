@@ -27,17 +27,11 @@ ActiveRecord::Schema.define(version: 20140114204641) do
   end
 
   create_table "itemtypes", force: true do |t|
-  end
-
-  create_table "kits", force: true do |t|
     t.string   "name"
-    t.string   "type"
-    t.integer  "quantity"
-    t.string   "description"
-    t.integer  "squad"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
 
   create_table "users", force: true do |t|
     t.string   "name"
