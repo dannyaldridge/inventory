@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-
+  before_filter :authenticate_user, only: :index
   def new
   	@team = Team.new
   end
