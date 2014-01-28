@@ -23,6 +23,19 @@ class TeamsController < ApplicationController
     @team = Team.find params[:id]
   end
 
+  def edit
+    @team = Team.find(params[:id])
+  end
+  
+  def update
+    @team = Team.find(params[:id])
+    if(@team.update_attributes(team_params))
+      redirect_to(@team)
+    else
+      render(:edit)
+    end
+  end
+
   def destroy
     Team.destroy(params[:id]) 
     redirect_to teams_path
