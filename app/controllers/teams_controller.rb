@@ -1,18 +1,19 @@
 class TeamsController < ApplicationController
-  before_filter :authenticate_user, only: :index
+  before_filter :authenticate_user
+
   def new
-  	@team = Team.new
+    @team = Team.new
   end
 
   def create
-  	@team = Team.new team_params
+    @team = Team.new(team_params)
 
-  	if @team.save
-  		flash[:notice] = "Team added"
-  		redirect_to @team
-  	else
-  		render 'new'
-  	end
+    if @team.save
+      flash[:notice] = "Team added"
+      redirect_to(@team)
+    else
+      render('new')
+    end
   end
 
   def index
@@ -26,9 +27,10 @@ class TeamsController < ApplicationController
   def edit
     @team = Team.find(params[:id])
   end
-  
+
   def update
     @team = Team.find(params[:id])
+
     if(@team.update_attributes(team_params))
       redirect_to(@team)
     else
@@ -46,6 +48,4 @@ class TeamsController < ApplicationController
   def team_params
     params.require(:team).permit(:name)
   end
-
-
 end

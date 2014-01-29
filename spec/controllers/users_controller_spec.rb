@@ -2,8 +2,17 @@ require 'spec_helper'
 
 describe UsersController do
 
+  subject {UsersController}
+
+  it "calls the authenticate_user before_filter" do
+    expect(subject.before_filter_collection).to include(:authenticate_user)
+  end
+
 
   describe "POST create" do
+    before(:each) do
+      stub_login
+    end
     context "with valid user attributes" do
       it "creates a new user in the database" do
         expect {

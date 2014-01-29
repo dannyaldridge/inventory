@@ -2,12 +2,10 @@
 
 
 <%= form_for @team do |team| %>
-	<div class="row">
-		<div class="large-12 columns">
-			<%= team.text_field :name, placeholder: "Team Name", label: "Team Name" %>
-		</div>
-		<div>
-			<%= submit_tag "Add team", class: "button" %>
-		</div>
-	</div>
+  <div class="large-12 columns">
+    <%= team.text_field :name, placeholder: "Team Name", label: "Team Name" %>
+  </div>
+  <div>
+    <%= submit_tag "Add team", class: "button" %>
+  </div>
 <% end %>

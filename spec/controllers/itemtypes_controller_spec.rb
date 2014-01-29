@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'controller_spec_helper'
 
 describe ItemtypesController do
   
@@ -74,24 +73,26 @@ describe ItemtypesController do
   describe "#create" do
       before :each do
         stub_login
-        get 'new'
+        post 'create', itemtype: FactoryGirl.attributes_for(:itemtype)
       end
 
       context "with a unique name" do
-      it "creates a new item type in the database" do
-        expect {post 'create', itemtype: FactoryGirl.attributes_for(:itemtype)}.to change(Itemtype, :count).by 1
-      end
+        it "creates a new item type in the database" do
+          expect {post 'create', itemtype: FactoryGirl.attributes_for(:itemtype)}.to change(Itemtype, :count).by 1
+        end
 
-      it "sets the flash message to 'Item type added'" do
-        post 'create', itemtype: FactoryGirl.attributes_for(:itemtype)
-        expect(flash[:notice]).to eq "Item Type added"
-      end
+        it "assigns @itemtype to the new ItemType" do
+          expect(assigns[:itemtype].class.name).to eq 'Itemtype'
+        end
 
-      it "redrects to the show item type page" do
-        post 'create', itemtype: FactoryGirl.attributes_for(:itemtype)
-        expect(response).to redirect_to ('/itemtypes/1')
+        it "sets the flash message to 'Item type added'" do
+          expect(flash[:notice]).to eq "Item Type added"
+        end
+
+        it "redrects to the show item type page" do
+          expect(response).to redirect_to(assigns[:itemtype])
+        end
       end
-    end
 
     context "With a non unique name" do
       before :each do

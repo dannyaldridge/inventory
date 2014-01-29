@@ -3,6 +3,7 @@ FactoryGirl.define do
     sequence :name do |n|
       "Junior#{n}"
     end
+
     trait :invalid do
       name nil
     end

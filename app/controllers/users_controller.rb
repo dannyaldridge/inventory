@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
-  # GET /users
-  def index
-  end
-  # GET /users/:id
-  def show
-  end
+  before_filter :authenticate_user
 
   # GET /users/new
   def new
@@ -28,6 +23,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)
   end
-
 
 end

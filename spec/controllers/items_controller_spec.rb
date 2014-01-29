@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'controller_spec_helper'
 
 describe ItemsController do
   
@@ -22,6 +21,7 @@ describe ItemsController do
       before :each do
         stub_login
         get 'new'
+        post 'create', item: FactoryGirl.attributes_for(:item)
       end
 
       context "with a unique name" do
@@ -30,13 +30,15 @@ describe ItemsController do
       end
 
       it "sets the flash message to 'Item added'" do
-        post 'create', item: FactoryGirl.attributes_for(:item)
         expect(flash[:notice]).to eq "Item added"
       end
 
+      it "assigns @item to an Item" do
+        expect(assigns[:item].class.name).to eq "Item"
+      end
+
       it "redrects to the show item page" do
-        post 'create', item: FactoryGirl.attributes_for(:item)
-        expect(response).to redirect_to ('/items/1')
+        expect(response).to redirect_to(assigns[:item])
       end
     end
 

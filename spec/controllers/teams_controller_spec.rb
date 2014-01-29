@@ -2,45 +2,50 @@ require 'spec_helper'
 
 describe TeamsController do
 
-  describe "create" do
+  subject {TeamsController}
+
+  it "calls the authenticate_user before_filter" do
+    expect(subject.before_filter_collection).to include(:authenticate_user)
+  end
+
+  describe "#create" do
+    before(:each) do
+      stub_login
+    end
+
     context "with a unique name" do
       it "creates a new team in the database" do
-        expect {post 'create', team: FactoryGirl.attributes_for(:team)}.to change(Team, :count).by 1
+        expect {post 'create', team: FactoryGirl.attributes_for(:team)}.to change(Team, :count).by(1)
       end
 
       it "sets the flash message to 'Team added'" do
         post 'create', team: FactoryGirl.attributes_for(:team)
-        expect(flash[:notice]).to eq "Team added"
+        expect(flash[:notice]).to eq("Team added")
       end
 
-      it "redrects to the show teams page" do
+      it "redirects to the show team page" do
         post 'create', team: FactoryGirl.attributes_for(:team)
-        expect(response).to redirect_to ('/teams/1')
+        expect(response).to redirect_to team_path(assigns(:team))
       end
     end
 
-    context "With a non unique name" do
-      before :each do
+    context "With a non-unique name" do
+      before(:each) do
         @team = FactoryGirl.create(:team)
         post 'create',
           team: {name: @team.name}
       end
 
-      it "redrects to the new team page" do
+      it "redirects to the new team page" do
         response.should render_template('teams/new')
       end
 
     end
   end
 
-  # LOADS of tests missing here!
-  # new?
-  # show?
-  # index?
-  # This is NOT test-DRIVEN development if you don't make the tests DRIVE the functionality
-
   describe "#edit" do
     before(:each) do
+      stub_login
       @team = FactoryGirl.create(:team)
       get(:edit, id: @team)
     end
@@ -55,6 +60,10 @@ describe TeamsController do
   end
 
   describe "#update" do
+    before(:each) do 
+      stub_login
+    end
+
     context "valid attributes" do
       before(:each) do 
         @team = FactoryGirl.create(:team)
@@ -64,7 +73,7 @@ describe TeamsController do
       it "locates the requested @team" do
         expect(assigns(:team).id).to eq(@team.id)
       end
-      
+
       it "changes @team's attributes" do
         @team.reload
         expect(@team.name).to eq("New team name")
@@ -100,6 +109,7 @@ describe TeamsController do
 
   describe "#destroy" do
     before(:each) do
+      stub_login
       @team = FactoryGirl.create(:team)
     end
 
@@ -113,5 +123,16 @@ describe TeamsController do
       response.should redirect_to(teams_path)
     end
 
+    describe "#new" do
+    end
+
+    describe "#index" do
+    end
+
+    describe "#show" do
+    end
+
+    describe "#team_params" do
+    end
   end
 end
