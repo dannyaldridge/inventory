@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Use postgres as the database for Active Record
-gem 'pg'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -35,7 +32,10 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :test do
+group :development, :test do
+  # Use sqlite3 for dev and test db
+  gem 'sqlite3'
+
   gem 'rspec-rails', '~> 3.0.0.beta'
 	gem 'capybara'
 	gem 'cucumber-rails', require: false
@@ -51,6 +51,9 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 group :production do
   # Use unicorn as the app server
   gem 'unicorn'
+
+  # Use postgres as the database for Active Record
+  gem 'pg'
 end
 
 # Use Capistrano for deployment
