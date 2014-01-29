@@ -4,4 +4,9 @@
 # Examples:
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-  User.create(name: 'Adam', password: 'wolves')
+  User.create(name: 'Adam', password: 'wolves', password_confirmation: 'wolves')
+
+  ['Youth Contact', 'Junior Flag', 'Cadet Flag'].each do |name|
+    Team.create(name: name)
+  end
+
