@@ -31,7 +31,7 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
 
-    i f@team.update_attributes(team_params)
+    if @team.update_attributes(team_params)
       redirect_to(@team)
     else
       render(:edit)
