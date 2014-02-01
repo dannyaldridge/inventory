@@ -9,19 +9,18 @@ class UsersController < ApplicationController
   # POST /users
   def create
   	@user = User.new(user_params)
-    
+
     if @user.save
-      flash[:notice] = "User created successfully"
+      flash[:notice] = 'User created successfully'
       redirect_to root_path
     else
       render 'new'
     end
   end
 
-  private 
+  private
 
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation)
   end
-
 end

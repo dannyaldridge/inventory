@@ -9,7 +9,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
 
     if @team.save
-      flash[:notice] = "Team added"
+      flash[:notice] = 'Team added'
       redirect_to(@team)
     else
       render('new')
@@ -31,7 +31,7 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
 
-    if(@team.update_attributes(team_params))
+    i f@team.update_attributes(team_params)
       redirect_to(@team)
     else
       render(:edit)
@@ -39,11 +39,11 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    Team.destroy(params[:id]) 
+    Team.destroy(params[:id])
     redirect_to teams_path
   end
 
-  private 
+  private
 
   def team_params
     params.require(:team).permit(:name)

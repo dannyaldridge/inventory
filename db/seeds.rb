@@ -9,4 +9,3 @@
   ['Youth Contact', 'Junior Flag', 'Cadet Flag'].each do |name|
     Team.create(name: name)
   end
-

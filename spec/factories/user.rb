@@ -3,18 +3,18 @@ FactoryGirl.define do
     sequence :name do |n|
       "James#{n}"
     end
-    password "123456"
-    password_confirmation "123456"
+    password '123456'
+    password_confirmation '123456'
 
     trait :password_confirmation_does_not_match do
-    	password_confirmation "not matching"
+    	password_confirmation 'not matching'
     end
-  	
+
   	factory :invalid_user, traits: [:password_confirmation_does_not_match]
   end
 
   factory :non_user do
-    name "George"
-    password "false"
+    name 'George'
+    password 'false'
   end
 end

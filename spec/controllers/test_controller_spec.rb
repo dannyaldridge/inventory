@@ -90,13 +90,13 @@
 #   end
 
 #   describe "#destroy" do
-#     before(:each) do 
+#     before(:each) do
 #       stub_login
 #       @team = FactoryGirl.create(:team)
 
 #       delete "destroy", id: @team.id
 #     end
-    
+
 #     it "removes the team from the database" do
 #       expect(Team.exists?(@team.id)).to be_nil
 #     end

@@ -3,5 +3,5 @@ Given(/^I have created a team$/) do
 end
 
 When(/^I go to the teams path$/) do
-	visit "/teams/"
+	visit '/teams/'
 end

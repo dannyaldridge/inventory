@@ -13,11 +13,10 @@ class ApplicationController < ActionController::Base
   end
 
  def authenticate_user
-   redirect_to new_session_path, notice: "you must be logged in to view that page" if current_user.nil?
- end 
+   redirect_to new_session_path, notice: 'you must be logged in to view that page' if current_user.nil?
+ end
 
  def current_user
   @current_user = User.find session[:user_id] if session[:user_id].present?
  end
-
 end

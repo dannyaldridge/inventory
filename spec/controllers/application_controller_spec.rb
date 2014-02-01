@@ -2,22 +2,22 @@ require 'spec_helper'
 
 describe ApplicationController do
 
-  describe "#authenticate_user" do
+  describe '#authenticate_user' do
     controller do
       before_filter :authenticate_user
 
       def index
-        render text: "logged in"
+        render text: 'logged in'
       end
     end
 
-    context "user not logged in"  do
+    context 'user not logged in'  do
       before :each do
         session[:user_id] = nil
         get :index
       end
 
-      it "redirects to the login page" do
+      it 'redirects to the login page' do
         expect(response).to redirect_to ('/sessions/new')
       end
 
@@ -26,7 +26,7 @@ describe ApplicationController do
       end
     end
 
-    context "user in logged in" do
+    context 'user in logged in' do
 
       before :each do
         @user = FactoryGirl.create :user
@@ -34,11 +34,11 @@ describe ApplicationController do
         get :index
       end
 
-        it "continues to the index page" do
-          expect(response.body).to include "logged in"
-        end 
+        it 'continues to the index page' do
+          expect(response.body).to include 'logged in'
+        end
 
-        it "sets @current_user to the user object" do
+        it 'sets @current_user to the user object' do
           expect(assigns[:current_user]).to eq @user
         end
 
