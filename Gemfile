@@ -45,6 +45,8 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
+gem 'simplecov', require:  false
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
